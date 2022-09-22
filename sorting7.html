@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Shorting...</title>
+    <style>
+        div {
+}
+.gifts {
+  display: flex;
+  flex-direction: column;
+}
+#profile_data {
+  width: 100%;
+}
+#profile_data {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+}
+#profile_data img {
+}
+#profile_data img {
+  width: 40px;
+}
+#gift_data {
+}
+#gift_data img {
+  width: 60px;
+}
+.gifts div {
+  border-bottom: 1px solid #ddd;
+  padding: 0 37px;
+  display: ;
+  display: contents;
+}
+.miniprofilepicture {
+  padding: 10px;
+}
+
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul id="points_id">
+        </ul>
+    </div>
+    
+    <div class="gifts">
+        <div data-streakid="" data-sort="234">
+            <span id="profile_data">    
+                <img class="miniprofilepicture"
+                src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/00cca8c8a5dc63781b8f101afa49e0a4.jpeg?x-expires=1645941600&amp;x-signature=ICThpSbaB89p4FyQXdcArG%2FnHhk%3D">
+                <b><a class="usernamelink" href="https://www.tiktok.com/@straits_limousine"
+                        target="_blank">straits_limousine</a>:</b> <span>sent Confetti</span><br>
+            </span>
+            <span id="gift_data">
+                <div>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><img class="gifticon"
+                                        src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/cb4e11b3834e149f08e1cdcc93870b26~tplv-obj.png">
+                                </td>
+                                <td>
+                                    <span>Name: <b>Confetti</b> (ID:5585)<span><br>
+                                            <span>Repeat: <b style="">x1</b><span><br>
+                                                    <span>Cost: <b><span id="giftDiamonds">234</span> Diamonds</b>
+                                                        <span>
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </span>
+        </div>
+        <div data-streakid="" data-sort="908">
+            <span id="profile_data">    
+                <img class="miniprofilepicture"
+                src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/00cca8c8a5dc63781b8f101afa49e0a4.jpeg?x-expires=1645941600&amp;x-signature=ICThpSbaB89p4FyQXdcArG%2FnHhk%3D">
+                <b><a class="usernamelink" href="https://www.tiktok.com/@straits_limousine"
+                        target="_blank">straits_limousine</a>:</b> <span>sent Confetti</span><br>
+            </span>
+            <span id="gift_data">
+                <div>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><img class="gifticon"
+                                        src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/cb4e11b3834e149f08e1cdcc93870b26~tplv-obj.png">
+                                </td>
+                                <td>
+                                    <span>Name: <b>Confetti</b> (ID:5585)<span><br>
+                                            <span>Repeat: <b style="">x1</b><span><br>
+                                                    <span>Cost: <b><span id="giftDiamonds">908</span> Diamonds</b>
+                                                        <span>
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </span>
+        </div>
+    </div>
+
+
+    <script>
+        const giftDiv = document.querySelector('.gifts');
+        const allData = [40, 89, 594,302, 28, 234, 70, 700, 7000];
+        let number = ""
+        function loededData(){
+            let html = allData.map(data => `
+                <div class="strakId" data-streakid="" data-sort="${data}">
+                    <span id="profile_data">    
+                        <img class="miniprofilepicture"
+                        src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/00cca8c8a5dc63781b8f101afa49e0a4.jpeg?x-expires=1645941600&amp;x-signature=ICThpSbaB89p4FyQXdcArG%2FnHhk%3D">
+                        <b><a class="usernamelink" href="https://www.tiktok.com/@straits_limousine"
+                                target="_blank">straits_limousine</a>:</b> <span>sent Confetti</span><br>
+                    </span>
+                    <span id="gift_data">
+                        <div>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td><img class="gifticon"
+                                                src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/cb4e11b3834e149f08e1cdcc93870b26~tplv-obj.png">
+                                        </td>
+                                        <td>
+                                            <span>Name: <b>Confetti</b> (ID:5585)<span><br>
+                                                    <span>Repeat: <b style="">x1</b><span><br>
+                                                            <span>Cost: <b><span id="giftDiamonds">${data}</span> Diamonds</b>
+                                                                <span>
+                                                                </span>
+                                                            </span>
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </span>
+                </div>
+            `).join('\n');
+            giftDiv.innerHTML = html
+            const singleItemDiv = Array.from(giftDiv.children);
+            let numberSort = ""
+            for (let i = 0; i < singleItemDiv.length; i++){
+                singleItemDiv.sort(function (a, b){
+                    return b.getAttribute('data-sort') -a.getAttribute('data-sort');
+                })
+                numberSort += singleItemDiv
+            }
+            giftDiv.append(...singleItemDiv);
+        }
+        loededData();
+
+      
+
+    </script>
+
+
+</body>
+
+</html>

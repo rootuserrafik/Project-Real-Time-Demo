@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop with JavaScript</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            background: #8a2be2bd;
+            justify-content: center;
+            justify-items: center;
+            align-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            flex-wrap: wrap;
+            padding: 0 50px;
+            border: 1px dashed white;
+            border-radius: 10px;
+        }
+        .grid{
+            width: 380px;
+            height: 250px;
+            background-color: aqua;
+            margin: 10px;
+            border: 10px solid rgb(255, 255, 255);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .form-element {
+            /* width: 100%; */
+            /* height: 100%; */
+            /* background-color: red; */
+            /* background-image: url("img/photo.jpg"); */
+            /* background-size: cover; */
+
+        }
+        .imgHide{
+            display: none;
+        }
+        .imgShow{
+            display: revert;
+        }
+        .form-element input[type="file"] {
+            display: none;
+        }
+        button {
+	z-index: 99;
+}
+img {
+	z-index: 9;
+}
+.form-element {
+	position: relative;
+}
+button {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+    </style>
+</head>
+<body>
+    <div class="grid">
+        <div class="form-element" draggable="true">
+            <input id="preimg-1" type="file" accept=".png, .jpg, .jpeg" />
+            <label for="preimg-1" id="preimg-1-preview">
+                <img src="https://bit.ly/3ubuq5o" alt="">
+                <div>
+                <span>+</span>
+              </div>
+            </label>
+            <button onclick="deleteImg1()">Delete</button>
+        </div>
+    </div>
+    <div class="grid">
+        <div class="form-element" draggable="true">
+            <input id="preimg-2" type="file" accept=".png, .jpg, .jpeg" />
+            <label for="preimg-2" id="preimg-2-preview">
+                <img src="https://bit.ly/3ubuq5o" alt="">
+                <div>
+                <span>+</span>
+              </div>
+            </label>
+
+            <button onclick="deleteImg2()">Delete</button>
+        </div>
+    </div>
+    <div class="grid">
+        <div class="form-element" draggable="true">
+            <input id="preimg-3" type="file" accept=".png, .jpg, .jpeg" />
+            <label for="preimg-3" id="preimg-3-preview">
+                <img src="https://bit.ly/3ubuq5o" alt="">
+                <div>
+                <span>+</span>
+              </div>
+            </label>
+
+            <button onclick="deleteImg3()">Delete</button>
+        </div>
+    </div>
+    <div class="grid">
+        <div class="form-element" draggable="true">
+            <input id="preimg-4" type="file" accept=".png, .jpg, .jpeg" />
+            <button onclick="deleteImg4()">Delete</button>
+            <label for="preimg-4" id="preimg-4-preview">
+                <img src="https://bit.ly/3ubuq5o" alt="">
+                <div>
+                <span>+</span>
+              </div>
+            </label>
+
+        </div>
+    </div>
+
+
+    <script>
+        function previewBeforeUpload(id){
+            document.querySelector("#"+id).addEventListener("change",function(e){
+                if(e.target.files.length == 0){
+                    return;
+                }
+                let file = e.target.files[0];
+                let url = URL.createObjectURL(file);
+                document.querySelector("#"+id+"-preview img").src = url;
+            }); 
+            
+        }
+
+        previewBeforeUpload("preimg-1");
+        previewBeforeUpload("preimg-2");
+        previewBeforeUpload("preimg-3");
+        previewBeforeUpload("preimg-4");
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+header{
+	background-color: orange;
+}
+.indicator{
+	display: flex;
+	justify-content: space-around;
+	justify-items: center;
+	align-content: center;
+	align-items: center;
+	text-align: center;
+	list-style: none;
+	font-size: 20px;
+}
+.indicator li{
+	border: 1px solid white;
+;
+}
+.indicator li a{
+	text-decoration: none;
+	text-transform: capitalize;
+	padding: 10px 20px;
+	line-height: 0;
+}
+
+.filter-condition{
+	font-size: 24px;
+}
+.items{
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	justify-items: center;
+	justify-content: space-around;
+}
+.items li {
+	width: 30%;
+}
+.items li img{
+	width: 100%;
+}

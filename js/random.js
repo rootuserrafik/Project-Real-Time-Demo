@@ -1,0 +1,26 @@
+
+
+// var number = [1, 2, 3, 4, 5, 6, 7];
+// var number = ["1", "2", "3", "4", "5", "6", "7"];
+var color = ["Red", "Yellow", "Navy", "Sky", "Green", "Purpul", "Blue"];
+
+
+var length = color.length;
+var randomnum = Math.floor(Math.random() * length) + 1;
+console.log(randomnum);
+
+var getdata = color[randomnum];
+var getdataimgname = getdata.toLowerCase();
+console.log(getdata);
+console.log("https://www.color-name.com/"+getdataimgname+".color");
+
+
+/*
+var colors = ["GFG_1", "GeeksForGeeks", "Geeks", "Computer Science Portal"];
+var data = colors[Math.floor(random(1, 5))-1];
+
+function random(mn, mx) {
+	return Math.random() * (mx - mn) + mn;
+}
+console.log(data);
+*/

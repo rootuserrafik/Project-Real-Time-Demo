@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop with JavaScript</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            background: #8a2be2bd;
+            justify-content: center;
+            justify-items: center;
+            align-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            flex-wrap: wrap;
+            padding: 0 50px;
+            border: 1px dashed white;
+            border-radius: 10px;
+        }
+        .whiteBox{
+            width: 180px;
+            height: 150px;
+            background-color: aqua;
+            margin: 10px;
+            border: 10px solid rgb(255, 255, 255);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .imgBox {
+            width: 100%;
+            height: 100%;
+            background-color: red;
+            background-image: url("img/photo.jpg");
+            background-size: cover;
+
+        }
+        .imgHide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="whiteBox">
+        <div class="imgBox" draggable="true"></div>
+    </div>
+    <div class="whiteBox"></div>
+    <div class="whiteBox"></div>
+    <div class="whiteBox"></div>
+    <div class="whiteBox"></div>
+
+
+    <script>
+        const imgBox = document.querySelector('.imgBox');
+        const whiteBoxs = document.getElementsByClassName('whiteBox');
+        const imgHide = "display: none;";
+
+  
+        imgBox.addEventListener('dragstart', (e) => {
+            console.log('DragStart has been triggered...!')
+            setTimeout(() => {
+                e.target.className = ' imgHide';
+            }, 0);
+        });
+        imgBox.addEventListener('dragend', (e) => {
+            e.target.className = 'imgBox';
+            console.log('DragEnd has been triggered...!')
+        });
+
+        for (whiteBox of whiteBoxs) {
+            whiteBox.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                console.log('DragOver has been troggered...!');
+            })
+            whiteBox.addEventListener('dragenter', () => {
+                console.log('DragEmter has been troggered...!');
+            })
+            whiteBox.addEventListener('dragleave', () => {
+                console.log('DragLeave has been troggered...!');
+            })
+            whiteBox.addEventListener('drag', (e) => {
+                e.target.append(imgBox);
+                console.log('Drag has been troggered...!');
+            })
+        }
+        // https://www.youtube.com/watch?v=mp0PHdpEC7A&t=1549s
+    </script>
+</body>
+</html>

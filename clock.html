@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock --</title>
+    <style>
+        
+
+body {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+.clock {
+    position: relative;
+	background-color: #fff;
+	color: #ff0101;
+	width: 300px;
+	height: 300px;
+	border-radius: 50%;
+	border: 10px solid #ff8a00;
+	box-shadow: 0 0 17px 7px #ffffff3b;
+	text-align: center;
+	overflow: hidden;
+	font-size: 18px;
+	color: #fff;
+}
+.number {
+    --polyGon: polygon(50% 50%, 36% 0, 64% 0);
+    --rotAte: 0;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	clip-path: var(--polyGon);
+    transform: var(--rotAte);
+    /* polygon(50% 50%, 36% 0, 64% 0) */
+}
+.number.number1 {
+  transform: rotate(30deg);
+  background-color: rgb(123, 255, 0);
+}
+.number.number2 {
+  transform: rotate(60deg);
+  background-color: rgb(0, 225, 255);
+}
+.number.number3 {
+  transform: rotate(90deg);
+  background-color: rgb(0, 255, 255);
+}.number.number4 {
+  transform: rotate(120deg);
+  background-color: rgb(0, 26, 255);
+}.number.number5 {
+  transform: rotate(150deg);
+  background-color: rgb(231, 0, 231);
+}.number.number6 {
+  transform: rotate(180deg);
+  background-color: rgb(212, 140, 5);
+}.number.number7 {
+  transform: rotate(210deg);
+  background-color: rgb(0, 219, 29);
+}.number.number8 {
+  transform: rotate(240deg);
+  background-color: rgb(0, 200, 226);
+}
+.number.number9 {
+  transform: rotate(270deg);
+  background-color: rgb(245, 0, 184);
+}
+.number.number10 {
+  transform: rotate(300deg);
+  background-color: rgb(0, 240, 108);
+}
+.number.number11 {
+  transform: rotate(330deg);
+  background-color: rgb(63, 92, 136);
+}
+.number.number12 {
+  transform: rotate(360deg);
+  background-color: rgb(60, 107, 6);
+}
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <div class="hand hour"></div>
+        <div class="hand minute"></div>
+        <div class="hand second"></div>
+        <div class="number number1">1</div>
+        <div class="number number2">2</div>
+        <div class="number number3">3</div>
+        <div class="number number4">4</div>
+        <div class="number number5">5</div>
+        <div class="number number6">6</div>
+        <div class="number number7">7</div>
+        <div class="number number8">8</div>
+        <div class="number number9">9</div>
+        <div class="number number10">10</div>
+        <div class="number number11">11</div>
+        <div class="number number12">12</div>
+        <div class="number number13">13</div>
+        <div class="number number14">14</div>
+    </div>
+    <script>
+        const TotalDiv = 14;
+        const rotateIon = 360 / TotalDiv;
+        const getCplace = rotateIon / 2;
+        const polyLeft = 50 - getCplace;
+        const polyRight = 100 - polyLeft;
+
+        // get random rgb color 
+        const randomColor = [];    
+        function random(min,max) {
+            const num = Math.floor(Math.random()*(max-min)) + min;
+            return num;
+        }
+        for(let countPoly = 1; countPoly<=TotalDiv; countPoly++){
+            const innerPolyGon = document.querySelector(".number"+[countPoly]);
+            
+            
+           
+        // get random rgb color 
+            function randomColor() {
+                return 'rgb(' + random(0,255) + ', ' + random(0,255) + ', ' + random(0,255) +  ')';
+            }
+            const newBgColor = randomColor();
+
+            innerPolyGon.style.setProperty("clip-path", "polygon(50% 50%, "+polyLeft+"% 0, "+polyRight+"% 0)");
+            innerPolyGon.style.setProperty("transform", "rotate("+rotateIon*countPoly+"deg)");
+            innerPolyGon.style.setProperty("background-color", newBgColor);
+        }
+    </script>
+</body>
+</html>

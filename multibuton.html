@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi Button</title>
+</head>
+<body>
+    <button id="load">Load Imges 01</button>
+    <button id="load">Load Imges 02</button>
+    <button id="load">Load Imges 03</button><br>
+    <button id="unload">Delete Imges 01</button>
+    <button id="unload">Delete Imges 02</button>
+    <button id="unload">Delete Imges 03</button><br>
+    <h1></h1>
+    <img src="" alt="" srcset="">
+    <img src="" alt="" srcset="">
+    <img src="" alt="" srcset="">
+    <br>
+    <input type="file">
+    <input type="file">
+    <input type="file">
+    <h2></h2>
+    <style>
+        body {
+            text-align: center;
+        }
+        button {
+            cursor: pointer;
+            padding: 10px;
+            margin: 5px;
+            display: inline-block;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        img {
+            width: 250px;
+            padding: 20px;
+            height: 150px;
+            object-fit: cover;
+        }
+    </style>
+
+
+    <script>
+        var count = document.querySelectorAll('#load').length; 
+        // var count = document.querySelectorAll('#unload').length; 
+        for(var i = 0; i< count; i++){
+            const imgInput = document.querySelectorAll('input')[i]
+            const imgOut = document.querySelectorAll('img')[i]
+            document.querySelectorAll('#load')[i].addEventListener('click', function(){
+                var text = this.innerHTML;
+                document.querySelector('h1').innerHTML = text;
+
+                var getImgData = imgInput.click();
+                imgInput.addEventListener('change', function(e){
+                    const file = this.files[0];
+                    if(file){
+                        const reader = new FileReader();
+                        reader.addEventListener('load', function(){
+                            console.log(this);
+                            imgOut.setAttribute('src', this.result);
+                        })
+                        reader.readAsDataURL(file);
+                        imgOut.style.display = null;
+                    } else {
+                        
+                        imgOut.style.display = 'block';
+                        imgOut.setAttribute("src", "");
+                    }
+                }, false)
+            })
+
+            document.querySelectorAll('#unload')[i].addEventListener('click', function(){
+                var text = this.innerHTML;
+                document.querySelector('h1').innerHTML = text;
+                        imgOut.setAttribute("src", "");
+            })
+        }
+    </script>
+</body>
+</html>
